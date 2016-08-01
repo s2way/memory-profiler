@@ -1,3 +1,6 @@
+# expected params
+# coffee profiler.coffee {PID} {appName}
+
 es_host =
     host: 'localhost'
     port: 9200
