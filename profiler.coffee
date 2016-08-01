@@ -5,11 +5,11 @@ es_host =
 SystemInfo = require('waferpie-utils').SystemInfo
 ElasticSearch = require 'elasticsearch-connector'
 es = new ElasticSearch es_host
-systemInfo = new SystemInfo process.argv[2] or 'app', process.argv[2]
+systemInfo = new SystemInfo process.argv[4] or 'app', process.argv[2]
 setInterval ->
     info = systemInfo.gather()
     info.created = new Date().toISOString()
-    console.log info
+    info.name = process.argv[4] or 'app'
     log =
         index: 'microservices'
         type: 'log'
